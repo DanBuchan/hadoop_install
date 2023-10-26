@@ -1,0 +1,5 @@
+- name: Deploy hadoop
+  hosts: all
+  become: true
+  roles:
+     - hadoop_install
