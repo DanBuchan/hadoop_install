@@ -35,7 +35,7 @@
 - name: set hadoop envs
   when: not hd.stat.exists
   ansible.builtin.blockinfile:
-    dest: /home/ec3-user/hadoop/etc/hadoop/hadoop-env.sh
+    dest: /home/ec2-user/hadoop/etc/hadoop/hadoop-env.sh
     block: |
       export HDFS_NAMENODE_USER=ec2-user
       export HDFS_DATANODE_USER=ec2-user
