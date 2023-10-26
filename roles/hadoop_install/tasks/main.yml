@@ -41,50 +41,52 @@
       export JAVA_HOME=/usr/lib/jvm/jre-openjdk/
   when: hb.stats.isdir is not defined and not hb.stats.isdir
 - name: Allow hadoop 9000tcp
-  ansible.posix.firewalld:
   become: true
   become_user: root
   become_method: sudo
+  ansible.posix.firewalld:
     port: 9000/tcp
     permanent: true
     state: enabled
 - name: Allow hadoop 9000udp
-  ansible.posix.firewalld:
   become: true
   become_user: root
   become_method: sudo
+  ansible.posix.firewalld:
     port: 9000/udp
     permanent: true
     state: enabled
 - name: Allow hadoop 9870tcp
-  ansible.posix.firewalld:
   become: true
   become_user: root
   become_method: sudo
+  ansible.posix.firewalld:
     port: 9870/tcp
     permanent: true
     state: enabled
 - name: Allow hadoop 9870udp
-  ansible.posix.firewalld:
   become: true
   become_user: root
   become_method: sudo
+  ansible.posix.firewalld:
     port: 9870/udp
     permanent: true
     state: enabled
 - name: Allow hadoop 8088tcp
-  ansible.posix.firewalld:
   become: true
   become_user: root
   become_method: sudo
+  ansible.posix.firewalld:
     port: 8088/tcp
     permanent: true
     state: enabled
 - name: Allow hadoop 8088udp
-  ansible.posix.firewalld:
   become: true
   become_user: root
   become_method: sudo
+  ansible.posix.firewalld:
     port: 8088/udp
     permanent: true
     state: enabled
+```
+
