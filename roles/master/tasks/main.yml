@@ -1,7 +1,7 @@
 - name: configure name node location
   ansible.builtin.blockinfile:
     dest: /home/ec2-user/hadoop/etc/hadoop/core-site.xml
-    insertafter: /</configuration>/
+    insertafter: /<configuration>/
     insertbefore: /</configuration>/
     block: |
         <property>
