@@ -46,47 +46,7 @@
   become_method: sudo
   ansible.posix.firewalld:
     port: 9000/tcp
-    permanent: yes
+    permanent: true
     state: enabled
-- name: Allow hadoop 9000udp
-  become: true
-  become_user: root
-  become_method: sudo
-  ansible.posix.firewalld:
-    port: 9000/udp
-    permanent: yes
-    state: enabled
-- name: Allow hadoop 9870tcp
-  become: true
-  become_user: root
-  become_method: sudo
-  ansible.posix.firewalld:
-    port: 9870/tcp
-    permanent: yes
-    state: enabled
-- name: Allow hadoop 9870udp
-  become: true
-  become_user: root
-  become_method: sudo
-  ansible.posix.firewalld:
-    port: 9870/udp
-    permanent: yes
-    state: enabled
-- name: Allow hadoop 8088tcp
-  become: true
-  become_user: root
-  become_method: sudo
-  ansible.posix.firewalld:
-    port: 8088/tcp
-    permanent: yes
-    state: enabled
-- name: Allow hadoop 8088udp
-  become: true
-  become_user: root
-  become_method: sudo
-  ansible.posix.firewalld:
-    port: 8088/udp
-    permanent: yes
-    state: enabled
-```
+
 
