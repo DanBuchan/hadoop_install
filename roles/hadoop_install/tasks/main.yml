@@ -5,14 +5,20 @@
   ansible.builtin.dnf:
     name: java-17-openjdk
     state: latest
+- name: Get stats of hadoop dir
+  ansible.builtin.stat:
+    path: /home/ec2-user/hadoop
+  register: hd
 - name: Download haddoop package
   ansible.builtin.get_url:
     url: https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
     dest: /home/ec2-user
+  when: hb.stats.isdir is not defined and not hb.stats.isdir
 - name: Extract hadoop to hadoop
   ansible.builtin.unarchive:
     src: /home/ec2-user/hadoop-3.3.6.tar.gz
     dest: /home/ec2-user/hadoop
+  when: hb.stats.isdir is not defined and not hb.stats.isdir
 - name: update hosts file
   ansible.builtin.blockinfile:
   become: true
@@ -22,6 +28,7 @@
     block: |
       10.0.7.205    node-master
       10.0.7.201    node-worker
+  when: hb.stats.isdir is not defined and not hb.stats.isdir
 - name: set hadoop envs
   ansible.builtin.blockinfile:
     dest: /home/ec3-user/hadoop/etc/hadoop/hadoop-env.sh
@@ -32,6 +39,7 @@
       export YARN_RESOURCEMANAGER_USER=ec2-user
       export YARN_NODEMANAGER_USER=ec2-user
       export JAVA_HOME=/usr/lib/jvm/jre-openjdk/
+  when: hb.stats.isdir is not defined and not hb.stats.isdir
 - name: Allow hadoop 9000tcp
   ansible.posix.firewalld:
   become: true
