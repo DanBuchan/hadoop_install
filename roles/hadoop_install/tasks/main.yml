@@ -20,10 +20,10 @@
     dest: /home/ec2-user/hadoop
   when: hb.stats.isdir is not defined and not hb.stats.isdir
 - name: update hosts file
-  ansible.builtin.blockinfile:
   become: true
   become_user: root
   become_method: sudo
+  ansible.builtin.blockinfile:
     dest: /etc/hosts
     block: |
       10.0.7.205    node-master
