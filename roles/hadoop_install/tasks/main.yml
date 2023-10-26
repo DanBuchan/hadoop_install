@@ -13,12 +13,12 @@
   ansible.builtin.get_url:
     url: https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
     dest: /home/ec2-user
-  when: hd.stats.isdir is not defined and not hd.stats.isdir
+  when: hd.stat.isdir is not defined and not hd.stat.isdir
 - name: Extract hadoop to hadoop
   ansible.builtin.unarchive:
     src: /home/ec2-user/hadoop-3.3.6.tar.gz
     dest: /home/ec2-user/hadoop
-  when: hd.stats.isdir is not defined and not hd.stats.isdir
+  when: hd.stat.isdir is not defined and not hd.stat.isdir
 - name: update hosts file
   become: true
   become_user: root
@@ -28,9 +28,9 @@
     block: |
       10.0.7.205    node-master
       10.0.7.201    node-worker
-  when: hd.stats.isdir is not defined and not hd.stats.isdir
+  when: hd.stat.isdir is not defined and not hd.stat.isdir
 - name: set hadoop envs
-  when: hd.stats.isdir is not defined and not hd.stats.isdir
+  when: hd.stat.isdir is not defined and not hd.stat.isdir
   ansible.builtin.blockinfile:
     dest: /home/ec3-user/hadoop/etc/hadoop/hadoop-env.sh
     block: |
