@@ -2,4 +2,5 @@
   hosts: all
   become: true
   roles:
-     - hadoop_install
+#     - hadoop_install
+    - master

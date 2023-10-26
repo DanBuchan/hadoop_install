@@ -1,0 +1,11 @@
+- name: configure name node location
+  ansible.builtin.blockinfile:
+    dest: /home/ec2-user/hadoop/etc/hadoop/core-site.xml
+    insertafter: /</configuration>/
+    insertbefore: /</configuration>/
+    block: |
+        <property>
+            <name>fs.default.name</name>
+            <value>hdfs://node-master:9000</value>
+        </property>
+
