@@ -3,4 +3,9 @@
   become: true
   roles:
 #     - hadoop_install
-    - master
+
+- name: Config master
+  hosts: node-master
+  become: true
+  roles:
+     - master
