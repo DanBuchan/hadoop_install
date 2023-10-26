@@ -70,3 +70,8 @@
               <name>yarn.nodemanager.aux-services</name>
               <value>mapreduce_shuffle</value>
       </property>
+- name: replace work ID with client name from /etc/hosts
+  ansible.builtin.lineinfile:
+    path:  /home/ec2-user/hadoop/etc/hadoop/workers
+    regexp: 'localhost'
+    line: node-worker
