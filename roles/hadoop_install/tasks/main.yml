@@ -1,4 +1,4 @@
-- name: Install the latest version of Apache
+- name: Install the latest version of Java
   become: true
   become_user: root
   become_method: sudo
@@ -13,12 +13,12 @@
   ansible.builtin.get_url:
     url: https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
     dest: /home/ec2-user
-  when: hb.stats.isdir is not defined and not hb.stats.isdir
+  when: hd.stats.isdir is not defined and not hd.stats.isdir
 - name: Extract hadoop to hadoop
   ansible.builtin.unarchive:
     src: /home/ec2-user/hadoop-3.3.6.tar.gz
     dest: /home/ec2-user/hadoop
-  when: hb.stats.isdir is not defined and not hb.stats.isdir
+  when: hd.stats.isdir is not defined and not hd.stats.isdir
 - name: update hosts file
   become: true
   become_user: root
@@ -28,9 +28,9 @@
     block: |
       10.0.7.205    node-master
       10.0.7.201    node-worker
-  when: hb.stats.isdir is not defined and not hb.stats.isdir
+  when: hd.stats.isdir is not defined and not hd.stats.isdir
 - name: set hadoop envs
-  when: hb.stats.isdir is not defined and not hb.stats.isdir
+  when: hd.stats.isdir is not defined and not hd.stats.isdir
   ansible.builtin.blockinfile:
     dest: /home/ec3-user/hadoop/etc/hadoop/hadoop-env.sh
     block: |
@@ -40,7 +40,6 @@
       export YARN_RESOURCEMANAGER_USER=ec2-user
       export YARN_NODEMANAGER_USER=ec2-user
       export JAVA_HOME=/usr/lib/jvm/jre-openjdk/
-
 - name: Allow hadoop 9000tcp
   become: true
   become_user: root
