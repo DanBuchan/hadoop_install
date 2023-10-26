@@ -14,15 +14,13 @@
     url: https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
     dest: /home/ec2-user
   when: not hd.stat.exists
-- name: Creates directory
-  when: not hd.stat.exists
-  file:
-    path: /home/ec2-user/hadoop
-    state: directory
 - name: Extract hadoop to hadoop
   ansible.builtin.unarchive:
     src: /home/ec2-user/hadoop-3.3.6.tar.gz
-    dest: /home/ec2-user/hadoop
+    dest: /home/ec2-user/
+    extra_opts:
+    - --transform
+    - s/^hadoop-3.3.6/hadoop/
   when: not hd.stat.exists
 - name: update hosts file
   become: true
