@@ -2,6 +2,7 @@
   ansible.builtin.blockinfile:
     dest: /home/ec2-user/hadoop/etc/hadoop/core-site.xml
     insertafter: <configuration>
+    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
     block: |
         <property>
             <name>fs.default.name</name>
@@ -11,6 +12,7 @@
   ansible.builtin.blockinfile:
     dest: /home/ec2-user/hadoop/etc/hadoop/hdfs-site.xml
     insertafter: <configuration>
+    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
     block: |
       <property>
             <name>dfs.namenode.name.dir</name>
@@ -30,6 +32,7 @@
   ansible.builtin.blockinfile:
     dest: /home/ec2-user/hadoop/etc/hadoop/mapred-site.xml
     insertafter: <configuration>
+    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
     block: |
       <property>
               <name>mapreduce.framework.name</name>
