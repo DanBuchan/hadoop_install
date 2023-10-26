@@ -1,0 +1,82 @@
+- name: Install the latest version of Apache
+  become: true
+  become_user: root
+  become_method: sudo
+  ansible.builtin.dnf:
+    name: java-17-openjdk
+    state: latest
+- name: Download haddoop package
+  ansible.builtin.get_url:
+    url: https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
+    dest: /home/ec2-user
+- name: Extract hadoop to hadoop
+  ansible.builtin.unarchive:
+    src: /home/ec2-user/hadoop-3.3.6.tar.gz
+    dest: /home/ec2-user/hadoop
+- name: update hosts file
+  ansible.builtin.blockinfile:
+  become: true
+  become_user: root
+  become_method: sudo
+    dest: /etc/hosts
+    block: |
+      10.0.7.205    node-master
+      10.0.7.201    node-worker
+- name: set hadoop envs
+  ansible.builtin.blockinfile:
+    dest: /home/ec3-user/hadoop/etc/hadoop/hadoop-env.sh
+    block: |
+      export HDFS_NAMENODE_USER=ec2-user
+      export HDFS_DATANODE_USER=ec2-user
+      export HDFS_SECONDARYNAMENODE_USER=ec2-user
+      export YARN_RESOURCEMANAGER_USER=ec2-user
+      export YARN_NODEMANAGER_USER=ec2-user
+      export JAVA_HOME=/usr/lib/jvm/jre-openjdk/
+- name: Allow hadoop 9000tcp
+  ansible.posix.firewalld:
+  become: true
+  become_user: root
+  become_method: sudo
+    port: 9000/tcp
+    permanent: true
+    state: enabled
+- name: Allow hadoop 9000udp
+  ansible.posix.firewalld:
+  become: true
+  become_user: root
+  become_method: sudo
+    port: 9000/udp
+    permanent: true
+    state: enabled
+- name: Allow hadoop 9870tcp
+  ansible.posix.firewalld:
+  become: true
+  become_user: root
+  become_method: sudo
+    port: 9870/tcp
+    permanent: true
+    state: enabled
+- name: Allow hadoop 9870udp
+  ansible.posix.firewalld:
+  become: true
+  become_user: root
+  become_method: sudo
+    port: 9870/udp
+    permanent: true
+    state: enabled
+- name: Allow hadoop 8088tcp
+  ansible.posix.firewalld:
+  become: true
+  become_user: root
+  become_method: sudo
+    port: 8088/tcp
+    permanent: true
+    state: enabled
+- name: Allow hadoop 8088udp
+  ansible.posix.firewalld:
+  become: true
+  become_user: root
+  become_method: sudo
+    port: 8088/udp
+    permanent: true
+    state: enabled
