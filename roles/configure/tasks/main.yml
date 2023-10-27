@@ -6,7 +6,7 @@
     block: |
         <property>
             <name>fs.default.name</name>
-            <value>hdfs://10.0.7.205:9000</value>
+            <value>hdfs://node-master:9000</value>
         </property>
 - name: configure base hdfs properties
   ansible.builtin.blockinfile:
