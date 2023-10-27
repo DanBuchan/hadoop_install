@@ -29,8 +29,8 @@
   ansible.builtin.blockinfile:
     dest: /etc/hosts
     block: |
-      10.0.7.205    node-master
-      10.0.7.201    node-worker
+      10.0.12.12    node-master
+      10.0.11.202    node-worker
   when: not hd.stat.exists
 - name: set hadoop envs
   when: not hd.stat.exists
