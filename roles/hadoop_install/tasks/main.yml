@@ -108,7 +108,7 @@
   become_user: root
   become_method: sudo
   ansible.posix.firewalld:
-    port: 8032/tcp
+    port: 8032/tcp 9866/tcp
     permanent: true
     state: enabled
     zone: public
@@ -118,7 +118,7 @@
   become_user: root
   become_method: sudo
   ansible.posix.firewalld:
-    port: 8032/udp
+    port: 8032/udp 9866/udp
     permanent: true
     state: enabled
     zone: public
