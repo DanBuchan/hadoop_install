@@ -5,4 +5,4 @@
   ansible.posix.authorized_key:
     user: ec2-user
     state: present
-    key: '/home/ec2-user/.ssh/id_rsa.pub'
+    key: /home/ec2-user/.ssh/id_rsa.pub
