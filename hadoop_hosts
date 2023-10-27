@@ -5,5 +5,5 @@
 [node-master]
 10.0.7.205
 
-[worker-node]
+[node-worker]
 10.0.7.201

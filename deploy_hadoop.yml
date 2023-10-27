@@ -12,3 +12,8 @@
   hosts: node-master
   roles:
      - master
+
+- name: Configure master
+  hosts: node-worker 
+  roles:
+     - worker
