@@ -3,7 +3,7 @@
   become_user: root
   become_method: sudo
   ansible.builtin.dnf:
-    name: java-17-openjdk
+    name: java-1.8.0-openjdk
     state: latest
 - name: Get stats of hadoop dir
   ansible.builtin.stat:
