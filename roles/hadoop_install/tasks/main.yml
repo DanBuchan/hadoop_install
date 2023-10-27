@@ -238,3 +238,23 @@
     state: enabled
     zone: public
     immediate: yes
+- name: Allow hadoop 33813/tcp
+  become: true
+  become_user: root
+  become_method: sudo
+  ansible.posix.firewalld:
+    port: 33813/tcp
+    permanent: true
+    state: enabled
+    zone: public
+    immediate: yes
+- name: Allow hadoop 33813udp
+  become: true
+  become_user: root
+  become_method: sudo
+  ansible.posix.firewalld:
+    port: 33813/udp
+    permanent: true
+    state: enabled
+    zone: public
+    immediate: yes
