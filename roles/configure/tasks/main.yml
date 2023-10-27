@@ -63,7 +63,7 @@
   
       <property>
               <name>yarn.resourcemanager.hostname</name>
-              <value>10.0.7.205</value>
+              <value>node-master</value>
       </property>
   
       <property>
