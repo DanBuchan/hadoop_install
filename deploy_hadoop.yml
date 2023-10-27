@@ -1,7 +1,7 @@
 - name: Deploy hadoop
   hosts: all
   roles:
-#     - hadoop_install
+     - hadoop_install
 
 - name: Config master
   hosts: all
