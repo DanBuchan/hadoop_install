@@ -1,9 +1,16 @@
-- name: Install the latest version of Java
+- name: Install Java 8
   become: true
   become_user: root
   become_method: sudo
   ansible.builtin.dnf:
     name: java-1.8.0-openjdk
+    state: latest
+- name: Install firewalld
+  become: true
+  become_user: root
+  become_method: sudo
+  ansible.builtin.dnf:
+    name: firewalld
     state: latest
 - name: Get stats of hadoop dir
   ansible.builtin.stat:
