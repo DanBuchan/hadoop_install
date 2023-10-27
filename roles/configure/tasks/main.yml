@@ -70,6 +70,10 @@
               <name>yarn.nodemanager.aux-services</name>
               <value>mapreduce_shuffle</value>
       </property>
+      <property>
+              <name>yarn.nodemanager.resource.memory-mb</name>
+              <value>4096</value>
+      </property>
 - name: replace work ID with client name from /etc/hosts
   ansible.builtin.lineinfile:
     path:  /home/ec2-user/hadoop/etc/hadoop/workers
