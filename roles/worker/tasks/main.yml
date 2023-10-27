@@ -2,3 +2,4 @@
   copy:
     src: /home/ec2-user/.ssh/is_rsa.pub
     dest: /home/ec2-user/.ssh/is_rsa.pub
+    remote_src: false
