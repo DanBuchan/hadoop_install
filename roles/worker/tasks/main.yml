@@ -3,3 +3,8 @@
     src: /home/ec2-user/.ssh/id_rsa.pub
     dest: /home/ec2-user/.ssh/id_rsa.pub
     remote_src: false
+- name: Set authorized key for master
+  ansible.posix.authorized_key:
+    user: ec2-user
+    state: present
+    key: "{{ lookup('file', '/home/ec2-user/.ssh/id_rsa.pub') }}"
