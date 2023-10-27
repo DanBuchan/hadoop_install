@@ -8,4 +8,10 @@
   hosts: all
   become: true
   roles:
+     - configure
+
+- name: Config master
+  hosts: node-master
+  become: true
+  roles:
      - master
