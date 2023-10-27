@@ -1,5 +1,5 @@
 - name: Copy new ssh identity to workers
   copy:
-    src: /home/ec2-user/.ssh/is_rsa.pub
-    dest: /home/ec2-user/.ssh/is_rsa.pub
+    src: /home/ec2-user/.ssh/id_rsa.pub
+    dest: /home/ec2-user/.ssh/id_rsa.pub
     remote_src: false
