@@ -143,3 +143,43 @@
     state: enabled
     zone: public
     immediate: yes
+- name: Allow hadoop 9864tcp
+  become: true
+  become_user: root
+  become_method: sudo
+  ansible.posix.firewalld:
+    port: 9864/tcp
+    permanent: true
+    state: enabled
+    zone: public
+    immediate: yes
+- name: Allow hadoop 9864udp
+  become: true
+  become_user: root
+  become_method: sudo
+  ansible.posix.firewalld:
+    port: 9864/udp
+    permanent: true
+    state: enabled
+    zone: public
+    immediate: yes
+- name: Allow hadoop 9867tcp
+  become: true
+  become_user: root
+  become_method: sudo
+  ansible.posix.firewalld:
+    port: 9867/tcp
+    permanent: true
+    state: enabled
+    zone: public
+    immediate: yes
+- name: Allow hadoop 9867udp
+  become: true
+  become_user: root
+  become_method: sudo
+  ansible.posix.firewalld:
+    port: 9867/udp
+    permanent: true
+    state: enabled
+    zone: public
+    immediate: yes
