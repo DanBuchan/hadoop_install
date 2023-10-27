@@ -13,6 +13,9 @@
     name: firewalld
     state: latest
 - name: start firewalld
+  become: true
+  become_user: root
+  become_method: sudo
   ansible.builtin.systemd:
     state: started
     name: firewalld
