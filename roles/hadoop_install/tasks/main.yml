@@ -12,6 +12,10 @@
   ansible.builtin.dnf:
     name: firewalld
     state: latest
+- name: start firewalld
+  ansible.builtin.systemd:
+    state: started
+    name: firewalld
 - name: Get stats of hadoop dir
   ansible.builtin.stat:
     path: /home/ec2-user/hadoop
