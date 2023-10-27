@@ -75,8 +75,16 @@
               <value>4096</value>
       </property>
       <property>
-            <name>yarn.resourcemanager.address</name>
-            <value>node-master:8032</value>
+        <name>yarn.resourcemanager.address</name>
+        <value>node-master:8032</value>
+      </property>
+      <property>
+          <name>yarn.resourcemanager.scheduler.address</name>
+          <value>node-master:8030</value>
+      </property>
+      <property>
+          <name>yarn.resourcemanager.resource-tracker.address</name>
+          <value>node-master:8031</value>
       </property>
 - name: replace work ID with client name from /etc/hosts
   ansible.builtin.lineinfile:
