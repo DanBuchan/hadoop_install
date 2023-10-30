@@ -280,13 +280,13 @@
     immediate: yes
 - ansible.posix.firewalld:
     source: 10.0.12.12
+    permanent: true
     zone: trusted
     state: enabled
-    zone: public
     immediate: yes
 - ansible.posix.firewalld:
     source: 10.0.11.202
+    permanent: true
     zone: trusted
     state: enabled
-    zone: public
     immediate: yes 
