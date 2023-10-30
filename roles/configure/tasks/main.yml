@@ -94,7 +94,7 @@
       </property>
             <property>
               <name>yarn.nodemanager.resource.memory-mb</name>
-              <value>4096</value>
+              <value>1024</value>
       </property>
       <property> 
          <name>yarn.scheduler.minimum-allocation-mb</name> 
@@ -102,7 +102,7 @@
       </property>
       <property> 
          <name>yarn.scheduler.maximum-allocation-mb</name> 
-       <value>6144</value>
+       <value>3072</value>
       </property>
 - name: replace work ID with client name from /etc/hosts
   ansible.builtin.lineinfile:
